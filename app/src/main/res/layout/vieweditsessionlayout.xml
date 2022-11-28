@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="32dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/header_add_edit_game"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="18dp"
+            android:gravity="center"
+            android:text="@string/gaddedit"
+            android:textAlignment="gravity"
+            android:textAllCaps="false"
+            android:textIsSelectable="false"
+            android:textSize="34sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/editGameDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="24dp"
+            android:ems="10"
+            android:inputType="date"
+            android:text="@string/gdate" />
+
+        <EditText
+            android:id="@+id/editGameLocation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="24dp"
+            android:ems="10"
+            android:text="@string/gloc" />
+
+        <AutoCompleteTextView
+            android:id="@+id/editGameType"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="24dp"
+            android:text="@string/gtype" />
+
+        <EditText
+            android:id="@+id/gameBuyIn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="24dp"
+            android:ems="10"
+            android:inputType="number"
+            android:text="@string/gbuy" />
+
+        <EditText
+            android:id="@+id/gamePayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="24dp"
+            android:ems="10"
+            android:inputType="number"
+            android:text="@string/gpay" />
+
+        <Button
+            android:id="@+id/gameInfoSubmit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="24dp"
+            android:alpha=".25f"
+            android:backgroundTint="@color/select_red"
+            android:clickable="false"
+            android:text="@string/submit_btn" />
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
