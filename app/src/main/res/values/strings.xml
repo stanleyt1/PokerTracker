@@ -1,3 +1,34 @@
 <resources>
     <string name="app_name">PokerTracker</string>
+
+    <string name="submit_btn">Submit</string>
+
+    <!-- Game information strings -->
+    <string name="gaddedit">Add/Edit Game</string>
+    <string name="gdate">Date of Game</string>
+    <string name="gloc">Location</string>
+    <string name="gtype">Game Type</string>
+    <string name="gbuy">Buy In</string>
+    <string name="gpay">Payout</string>
+
+    <!-- Game Types -->
+    <string-array name="game_types">
+        <item>Texas Hold\'em</item>
+        <item>Omaha</item>
+        <item>Stud</item>
+        <item>Draw</item>
+        <item>Badugi</item>
+        <item>Horse</item>
+        <item>Razz</item>
+        <item>Chinese</item>
+        <item>Short Deck</item>
+        <item>Pineapple</item>
+        <item>Chicago</item>
+        <item>Community Card</item>
+        <item>Follow the Queen</item>
+        <item>Guts</item>
+        <item>Five-O</item>
+        <item>Kuhn</item>
+    </string-array>
+
 </resources>
