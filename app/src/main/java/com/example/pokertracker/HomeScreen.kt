@@ -44,39 +44,50 @@ class HomeScreen : AppCompatActivity(){
 
         displayCounts()
         graphView = findViewById(R.id.graph)
-        drawGraph()
-    }
-    //may need onRestart, onStart, and onResume
-    private fun displayCounts() {
-        binding.editWinRate.text="$winRate %"
-        binding.editAvgWin.text= "$ ${String.format("%.2f", avgWin)}"
-        binding.editStdDeviation.text="$stdDev"
-        binding.editVariance.text="$variance"
-        binding.editTotalBalance.text="$ ${String.format("%.2f", totalBalance)}"
-    }
+        graphTotalBalance()
+        /*If the text for the stats are clicked on, then the graph update to
+        show that stat plotted over time
+         */
+        binding.textStdDeviation.setOnClickListener{
+            graphStdDev()
+        }
+        binding.textTotalBalance.setOnClickListener{
+            graphTotalBalance()
+        }
+        binding.textVariance.setOnClickListener{
+            graphVariance()
+        }
+        binding.textWinRate.setOnClickListener{
+            graphWinRate()
+        }
+        binding.textAvgWin.setOnClickListener{
+            graphAvgWin()
+        }
 
-    private fun drawGraph(){
+    }
+    private fun graphStdDev(){
         //clearing graph
         graphView.removeAllSeries()
+
+        graphView.setTitle("Std.Dev over Time")
 
         //These are test points until it is linked up with Database to pull info
         val series: LineGraphSeries<DataPoint> = LineGraphSeries(
             arrayOf(
-            // on below line we are adding
-            // each point on our x and y axis.
-            DataPoint(0.0, 1.0),
-            DataPoint(1.0, 3.0),
-            DataPoint(2.0, 4.0),
-            DataPoint(3.0, 9.0),
-            DataPoint(4.0, 6.0),
-            DataPoint(5.0, 3.0),
-            DataPoint(6.0, 6.0),
-            DataPoint(7.0, 1.0),
-            DataPoint(8.0, 2.0)
+                // on below line we are adding
+                // each point on our x and y axis.
+                DataPoint(0.0, 1.0),
+                DataPoint(1.0, 3.0),
+                DataPoint(2.0, 4.0),
+                DataPoint(3.0, 9.0),
+                DataPoint(4.0, 6.0),
+                DataPoint(5.0, 3.0),
+                DataPoint(6.0, 6.0),
+                DataPoint(7.0, 1.0),
+                DataPoint(8.0, 2.0)
             )
         )
-        graphView.setTitle("Total Balance over Time")
-
+        //////////////////////////////////////////////////////////////////////////////////////
         // on below line adding animation
         graphView.animate()
 
@@ -92,5 +103,175 @@ class HomeScreen : AppCompatActivity(){
         // on below line we are adding
         // data series to our graph view.
         graphView.addSeries(series)
+    }
+
+    private fun graphWinRate(){
+        //clearing graph
+        graphView.removeAllSeries()
+
+        graphView.setTitle("WinRate over Time")
+
+        //These are test points until it is linked up with Database to pull info
+        val series: LineGraphSeries<DataPoint> = LineGraphSeries(
+            arrayOf(
+                // on below line we are adding
+                // each point on our x and y axis.
+                DataPoint(0.0, 1.0),
+                DataPoint(1.0, 3.0),
+                DataPoint(2.0, 4.0),
+                DataPoint(3.0, 9.0),
+                DataPoint(4.0, 6.0),
+                DataPoint(5.0, 3.0),
+                DataPoint(6.0, 6.0),
+                DataPoint(7.0, 1.0),
+                DataPoint(8.0, 2.0)
+            )
+        )
+        //////////////////////////////////////////////////////////////////////////////////////
+        // on below line adding animation
+        graphView.animate()
+
+        // on below line we are setting scalable.
+        graphView.viewport.isScalable = true
+
+        // on below line we are setting scalable y
+        graphView.viewport.setScalableY(true)
+
+        // on below line we are setting color for series.
+        series.color = R.color.purple_200
+
+        // on below line we are adding
+        // data series to our graph view.
+        graphView.addSeries(series)
+
+    }
+    private fun graphTotalBalance(){
+        //clearing graph
+        graphView.removeAllSeries()
+
+        graphView.setTitle("Balance over Time")
+
+        //These are test points until it is linked up with Database to pull info
+        val series: LineGraphSeries<DataPoint> = LineGraphSeries(
+            arrayOf(
+                // on below line we are adding
+                // each point on our x and y axis.
+                DataPoint(0.0, 1.0),
+                DataPoint(1.0, 3.0),
+                DataPoint(2.0, 4.0),
+                DataPoint(3.0, 9.0),
+                DataPoint(4.0, 6.0),
+                DataPoint(5.0, 3.0),
+                DataPoint(6.0, 6.0),
+                DataPoint(7.0, 1.0),
+                DataPoint(8.0, 2.0)
+            )
+        )
+        //////////////////////////////////////////////////////////////////////////////////////
+        // on below line adding animation
+        graphView.animate()
+
+        // on below line we are setting scalable.
+        graphView.viewport.isScalable = true
+
+        // on below line we are setting scalable y
+        graphView.viewport.setScalableY(true)
+
+        // on below line we are setting color for series.
+        series.color = R.color.purple_200
+
+        // on below line we are adding
+        // data series to our graph view.
+        graphView.addSeries(series)
+
+    }
+    private fun graphVariance(){
+        //clearing graph
+        graphView.removeAllSeries()
+
+        graphView.setTitle("Variance over Time")
+
+        //These are test points until it is linked up with Database to pull info
+        val series: LineGraphSeries<DataPoint> = LineGraphSeries(
+            arrayOf(
+                // on below line we are adding
+                // each point on our x and y axis.
+                DataPoint(0.0, 1.0),
+                DataPoint(1.0, 3.0),
+                DataPoint(2.0, 4.0),
+                DataPoint(3.0, 9.0),
+                DataPoint(4.0, 6.0),
+                DataPoint(5.0, 3.0),
+                DataPoint(6.0, 6.0),
+                DataPoint(7.0, 1.0),
+                DataPoint(8.0, 2.0)
+            )
+        )
+        //////////////////////////////////////////////////////////////////////////////////////
+        // on below line adding animation
+        graphView.animate()
+
+        // on below line we are setting scalable.
+        graphView.viewport.isScalable = true
+
+        // on below line we are setting scalable y
+        graphView.viewport.setScalableY(true)
+
+        // on below line we are setting color for series.
+        series.color = R.color.purple_200
+
+        // on below line we are adding
+        // data series to our graph view.
+        graphView.addSeries(series)
+
+    }
+
+    private fun graphAvgWin(){
+        //clearing graph
+        graphView.removeAllSeries()
+
+        graphView.setTitle("Average Win Rate over Time")
+
+        //These are test points until it is linked up with Database to pull info
+        val series: LineGraphSeries<DataPoint> = LineGraphSeries(
+            arrayOf(
+                // on below line we are adding
+                // each point on our x and y axis.
+                DataPoint(0.0, 1.0),
+                DataPoint(1.0, 3.0),
+                DataPoint(2.0, 4.0),
+                DataPoint(3.0, 9.0),
+                DataPoint(4.0, 6.0),
+                DataPoint(5.0, 3.0),
+                DataPoint(6.0, 6.0),
+                DataPoint(7.0, 1.0),
+                DataPoint(8.0, 2.0)
+            )
+        )
+        //////////////////////////////////////////////////////////////////////////////////////
+        // on below line adding animation
+        graphView.animate()
+
+        // on below line we are setting scalable.
+        graphView.viewport.isScalable = true
+
+        // on below line we are setting scalable y
+        graphView.viewport.setScalableY(true)
+
+        // on below line we are setting color for series.
+        series.color = R.color.purple_200
+
+        // on below line we are adding
+        // data series to our graph view.
+        graphView.addSeries(series)
+    }
+
+    //may need onRestart, onStart, and onResume
+    private fun displayCounts() {
+        binding.editWinRate.text="${String.format("%.2f",winRate*100)} %"
+        binding.editAvgWin.text= "$ ${String.format("%.2f", avgWin*100)}"
+        binding.editStdDeviation.text="${String.format("%.3f",stdDev)}"
+        binding.editVariance.text="$variance"
+        binding.editTotalBalance.text="$ ${String.format("%.2f", totalBalance)}"
     }
 }
