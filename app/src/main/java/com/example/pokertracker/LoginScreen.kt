@@ -1,17 +1,11 @@
 package com.example.pokertracker
 
-import android.app.Activity
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.example.pokertracker.databinding.ActivityLoginScreenBinding
-
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
-import com.google.firebase.auth.AuthResult
-import com.google.android.gms.tasks.OnCompleteListener
 
 class LoginScreen : AppCompatActivity() {
 
@@ -31,6 +25,11 @@ class LoginScreen : AppCompatActivity() {
             //logging in user
             startActivity(intent)
         }
+
+
+
+
+
         binding.LogInButton.setOnClickListener {
             //storing entered information
             val email = binding.Email.text.toString()
@@ -40,18 +39,30 @@ class LoginScreen : AppCompatActivity() {
                     firebaseAuth.signInWithEmailAndPassword(email, password)
                         .addOnCompleteListener() {
                             if (it.isSuccessful) {
-                                Log.e("TAG", "success",it.exception)
-                                Toast.makeText(
-                                    this,
-                                    "Successfully Registered",
-                                    Toast.LENGTH_SHORT
-                                ).show()
-                                val intent = Intent(this, MainActivity::class.java)
-                                intent.flags =
-                                    Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK //clearing background activity
-                                //logging in user
-                                startActivity(intent)
-                                finish()
+                                val user = FirebaseAuth.getInstance().currentUser
+                                val emailVerified = user!!.isEmailVerified
+                                if(emailVerified) {
+                                    Toast.makeText(
+                                        this,
+                                        "Successfully Logged In",
+                                        Toast.LENGTH_SHORT
+                                    ).show()
+                                    val intent = Intent(this, MainActivity::class.java)
+                                    intent.flags =
+                                        Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK //clearing background activity
+                                    //logging in user
+                                    startActivity(intent)
+                                    finish()
+                                }else{
+                                    Toast.makeText(
+                                        this,
+                                        "Email not verified",
+                                        Toast.LENGTH_SHORT
+                                    ).show()
+                                    FirebaseAuth.getInstance().signOut();
+
+
+                                }
 
 
                             } else {

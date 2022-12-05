@@ -1,21 +1,14 @@
 package com.example.pokertracker
 
-import android.app.Activity
+
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.widget.Button
-import android.widget.EditText
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.example.pokertracker.databinding.ActivitySignUpScreenBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
-import com.google.firebase.auth.AuthResult
-import com.google.android.gms.tasks.OnCompleteListener
-
-
-import com.google.android.material.button.MaterialButton
 
 class SignUpScreen : AppCompatActivity() {
 
@@ -55,10 +48,11 @@ class SignUpScreen : AppCompatActivity() {
                                     .addOnCompleteListener {
                                         if (it.isSuccessful) {
                                             val firebaseUser: FirebaseUser = it.result!!.user!!
-                                            Log.e("TAG", "success",it.exception)
+
+                                            firebaseUser.sendEmailVerification()
                                             Toast.makeText(
                                                 this,
-                                                "Successfully Registered",
+                                                "Successfully Registered, Check Verification Email",
                                                 Toast.LENGTH_SHORT
                                             ).show()
                                             val intent = Intent(this, LoginScreen::class.java)
