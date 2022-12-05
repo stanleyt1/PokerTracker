@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.content.Intent
 import com.example.pokertracker.databinding.ActivityHomeScreenBinding
-import com.google.android.gms.fitness.data.DataPoint
 import com.google.firebase.auth.FirebaseAuth
 import com.jjoe64.graphview.GraphView
 import com.jjoe64.graphview.series.DataPoint

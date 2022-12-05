@@ -20,9 +20,17 @@ class LoginScreen : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityLoginScreenBinding.inflate(layoutInflater)
+        /*Use for Debugging HomeScreen
+        val intent = Intent(this, HomeScreen::class.java)
+        intent.flags =
+            Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK //clearing background activity
+        //logging in user
+        startActivity(intent)
+        */
 
+        binding = ActivityLoginScreenBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
         firebaseAuth = FirebaseAuth.getInstance()
 
 
@@ -46,7 +54,7 @@ class LoginScreen : AppCompatActivity() {
                                     "Successfully Registered",
                                     Toast.LENGTH_SHORT
                                 ).show()
-                                val intent = Intent(this, MainActivity::class.java)
+                                val intent = Intent(this, HomeScreen::class.java)
                                 intent.flags =
                                     Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK //clearing background activity
                                 //logging in user
