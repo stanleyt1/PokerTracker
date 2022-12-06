@@ -62,6 +62,18 @@ class HistoryFragment : Fragment() {
         // fetch sessions
         database.child(auth.currentUser!!.uid).get()
             .addOnSuccessListener {
+
+                // data does not exist
+                if (it.value == null) {
+                    val empty = TextView(context)
+                    empty.text = "No Past Sessions Found"
+                    empty.textSize = 18.0f
+                    empty.setTextColor(Color.WHITE)
+                    linearLayoutView.addView(empty)
+
+                    return@addOnSuccessListener
+                }
+
                 var sessions = (it.getValue<HashMap<String, Session>>()!!).values
 
                 val map = sessions.groupBy { it.date }

@@ -100,6 +100,13 @@ class StatsFragment : Fragment() {
         // fetch sessions
         database.child(auth.currentUser!!.uid).get()
             .addOnSuccessListener {
+
+                // data does not exist
+                if (it.value == null) {
+                    updateUI()
+                    return@addOnSuccessListener
+                }
+
                 sessions = (it.getValue<HashMap<String, Session>>()!!).values
 
                 var handsPlayed = 0
