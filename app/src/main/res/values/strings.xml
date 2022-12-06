@@ -1,0 +1,35 @@
+<resources>
+    <string name="app_name">PokerTracker</string>
+
+    <string name="app_name_space">Poker Tracker</string>
+
+    <string name="session_type">Game Type</string>
+    <string name="session_texas_hold_em">Texas Hold\'em</string>
+    <string name="session_five_card_draw">Five Card Draw</string>
+    <string name="session_omaha">Omaha</string>
+    <string name="session_location">Location</string>
+    <string name="session_date">Date</string>
+    <string name="session_buy_in">Buy In</string>
+    <string name="session_payout">Payout</string>
+    <string name="session_hands_played">Hands Played</string>
+    <string name="session_hands_won">Hands Won</string>
+    <string name="session_add_session">Add Session</string>
+    <string name="session_date_hint">DD/MM/YY</string>
+
+
+    <string name="login_no_account">Don\'t have an account?</string>
+    <string name="login_action">Log In</string>
+    <string name="login_title_poker">Poker</string>
+    <string name="login_title_tracker">Tracker</string>
+    <string name="login_email_hint">Email Address</string>
+    <string name="login_password_hint">Password</string>
+
+
+    <string name="signup_action">Sign Up</string>
+    <string name="signup_name">Name</string>
+    <string name="signup_confirm_password">Confirm Password</string>
+    <string name="signup_already_have_an_account">Already have an account?</string>
+
+    <string name="history_title">Past Sessions</string>
+
+</resources>
