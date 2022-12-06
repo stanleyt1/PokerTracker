@@ -131,7 +131,7 @@ class HistoryFragment : Fragment() {
 
         var profit = TextView(context)
         profit.id = TextView.generateViewId()
-        profit.text = String.format("$ %.2f", session.buy_in!! - session.pay_out!!)
+        profit.text = String.format("$ %.2f", session.pay_out!! - session.buy_in!!)
         profit.textSize = 24.0f
         profit.setTextColor(Color.WHITE)
         profit.setTypeface(null, Typeface.BOLD);
